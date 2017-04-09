@@ -95,7 +95,8 @@ dta %>%
   )+
   labs(
     title = "Cherry Bomb", 
-    subtitle = "Date of cherry-blossom peak-bloom in Kyoto, Japan, 800AD - 2016"
+    subtitle = "Date of cherry-blossom peak-bloom in Kyoto, Japan, 800AD - 2016",
+    caption = "Data by Aono and Kazui, 2008; Aono and Saito, 2010; Aono, 2012"
   )+
   # let's get close to the original graph's theme: 
   theme_classic()+
@@ -103,7 +104,8 @@ dta %>%
     axis.line = element_line(colour = "black"),
     axis.ticks.x = element_line(colour = "black"),
     panel.grid.major.x = element_blank(),
-    panel.grid.major.y = element_line(color = 'grey'),
+    panel.grid.major.y = element_line(color = "grey"),
+    plot.caption = element_text(colour = "grey"),
     panel.background = element_blank()
   ) 
 
