@@ -39,6 +39,7 @@ load.emojifont()
 # only needed for RStudio
 windows()
 
+
 # plot with sakura background
 dta %>% 
   ggplot(aes(x=AD, y=Full.flowering.date..DOY.))+
@@ -55,8 +56,20 @@ dta %>%
   theme_classic()
 
 
-
-
+# plot as sakuras
+dta %>% 
+  # include the sakura as emoji character in dataset
+  mutate(
+    sakura.emoji = emoji("cherry_blossom")
+  ) %>%
+  # plot in ggplot
+  ggplot(aes(x=AD, y=Full.flowering.date..DOY.))+
+  #geom_emoji("cherry_blossom", x=1408, y=104.5)+
+  geom_point(size = 2, colour = "red")+
+  # include emoji as text, h-/vjust to center; strange it needs vjust 0.25 -- why? 
+  geom_text(aes(label = sakura.emoji, hjust = 0.5, vjust = 0.25), family="EmojiOne", size = 4)+
+  geom_smooth(method = "loess", span = 0.1, fill = "#FFB7C5", colour = "red")+
+  theme_classic()
 
 
 
